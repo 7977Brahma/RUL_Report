@@ -1,0 +1,57 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+% Define colors for code
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Setup for code listings
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+\input{title}  % Ensure title.tex exists and is not empty
+\input{declaration}
+\input{acknowledgement}
+\input{abstract}
+
+\pagenumbering{roman}
+\input{content}% Ensure this line is present for the table of contents
+\newpage
+\input{conclusion}  % Include the conclusion here
+\newpage
+\addcontentsline{toc}{chapter}{References}
+
+% Citations that should not appear in the document
+\nocite{wang2014comprehensive, severson2019data, liu2019brief, zhang2020machine, xu2016modeling, ecker2012development, broussard2022state}
+
+\newpage
+
+\renewcommand\bibname{References} 
+\bibliographystyle{abbrv}
+\bibliography{bibilo}  % Ensure bibilo.bib exists and is not empty
+
+\end{document}
